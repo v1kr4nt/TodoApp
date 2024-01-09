@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { createTodo } = require("./types");
 const { todo } = require("./db");
@@ -7,6 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 mongoose.connect("mongodb://127.0.0.1:27017/todos").then((e) => {
   console.log("mongodb connected");
 });
